@@ -8,6 +8,7 @@ import { trackPhone, trackWhatsApp, trackEmail, trackExternalLink } from '@/lib/
 
 export default function Contactos() {
   const t = useTranslations('contactos')
+  const tR = useTranslations('reservas')
 const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10% 0px' })
 
@@ -84,9 +85,9 @@ const ref = useRef(null)
   ]
 
   const scheduleRows = [
-    { day: 'Sexta e Sábado', hours: clientData.hours.fridaySaturday },
-    { day: 'Terça a Quinta', hours: clientData.hours.tuesdayToThursday },
-    { day: 'Domingo e Segunda', hours: clientData.hours.sundayMonday },
+    { dayKey: 'fridaySat', hoursKey: 'fridaySatHours' },
+    { dayKey: 'tueThu', hoursKey: 'tueThuHours' },
+    { dayKey: 'sunMon', hoursKey: 'sunMonHours' },
   ]
 
   return (
@@ -155,10 +156,10 @@ const ref = useRef(null)
               </p>
               <table className="w-full" aria-label="Horário do restaurante">
                 <tbody className="divide-y divide-cream">
-                  {scheduleRows.map(({ day, hours }) => (
-                    <tr key={day}>
-                      <td className="py-2.5 font-body text-text/80 text-sm pr-4">{day}</td>
-                      <td className="py-2.5 font-body text-text/60 text-sm text-right">{hours}</td>
+                  {scheduleRows.map(({ dayKey, hoursKey }) => (
+                    <tr key={dayKey}>
+                      <td className="py-2.5 font-body text-text/80 text-sm pr-4">{tR(dayKey as Parameters<typeof tR>[0])}</td>
+                      <td className="py-2.5 font-body text-text/60 text-sm text-right">{tR(hoursKey as Parameters<typeof tR>[0])}</td>
                     </tr>
                   ))}
                 </tbody>

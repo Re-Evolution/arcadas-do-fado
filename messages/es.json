@@ -11,14 +11,15 @@
     "reservas": "Reservas",
     "testemunhos": "Testimonios",
     "contactos": "Contacto",
-    "reservarMesa": "Reservar Mesa"
+    "reservarMesa": "Reservas"
   },
   "hero": {
     "title": "Una Noche de Fado en el Algarve",
     "subtitle": "Gastronomía portuguesa y fado en directo en Almancil",
-    "ctaPrimary": "Reservar Mesa",
-    "ctaSecondary": "Ver Menú",
-    "badge": "Espectáculo cada Viernes y Sábado · 21:30"
+    "ctaPrimary": "Reservas",
+    "ctaSecondary": "Menú",
+    "badge": "Espectáculo cada Viernes y Sábado · 21:30",
+    "scrollText": "Saber más"
   },
   "espaco": {
     "sectionLabel": "El Espacio",

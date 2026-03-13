@@ -27,10 +27,10 @@ export default function Footer() {
   return (
     <footer className="bg-charcoal text-white/80" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
 
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="self-start">
             <Logo className="h-12 mb-4" isDark />
             <p className="font-body text-white/60 text-sm leading-relaxed mt-4">
               {t('footer.tagline')}
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           {/* Quick links */}
-          <div>
+          <div className="self-start">
             <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-white/50 mb-5">
               {t('footer.quickLinks')}
             </h3>
@@ -82,7 +82,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="self-start">
             <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-white/50 mb-5">
               {t('footer.contact')}
             </h3>
@@ -120,7 +120,7 @@ export default function Footer() {
           </div>
 
           {/* Legal */}
-          <div>
+          <div className="self-start">
             <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-white/50 mb-5">
               {t('footer.legal')}
             </h3>

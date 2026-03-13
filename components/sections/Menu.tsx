@@ -1,10 +1,11 @@
 'use client'
 
 import { useState, Fragment } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useMessages } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { menuData } from '@/data/client-info'
 import { formatPrice } from '@/lib/utils'
 
@@ -22,19 +23,38 @@ const menuContent: Record<MenuTab, { name: string; price: number }[]> = {
 }
 
 const entradasSections = [
-  { label: 'Couvert', items: menuData.couvert },
-  { label: 'Entradas', items: menuData.entradas },
+  { key: 'couvert', items: menuData.couvert },
+  { key: 'entradas', items: menuData.entradas },
 ]
 
 export default function Menu() {
   const t = useTranslations('menu')
+  const messages = useMessages()
   const [activeTab, setActiveTab] = useState<MenuTab>('entradas')
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10% 0px' })
 
+  const getItemName = (tab: string, i: number, fallback: string): string => {
+    const translated = (messages.menu as Record<string, unknown> | undefined)
+      ?.items as Record<string, Record<string, string>> | undefined
+    return translated?.[tab]?.[String(i)] ?? fallback
+  }
+
   return (
-    <section id="menu" className="py-24 lg:py-32 rust-aged-bg-light" aria-label="Menu">
-      <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="menu" className="relative py-24 lg:py-32 overflow-hidden" aria-label="Menu">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/space/sala-1.jpg"
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-charcoal/55" />
+      </div>
+
+      <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
@@ -91,16 +111,16 @@ export default function Menu() {
             {activeTab === 'entradas' ? (
               <ul className="divide-y divide-cream/70" role="list">
                 {entradasSections.map((section) => (
-                  <Fragment key={section.label}>
+                  <Fragment key={section.key}>
                     <li className="px-6 py-3 bg-cream/40">
                       <span className="font-sans text-xs font-semibold uppercase tracking-widest text-rust/70">
-                        {section.label}
+                        {t(`tabs.${section.key}` as Parameters<typeof t>[0])}
                       </span>
                     </li>
                     {section.items.map((item, i) => (
-                      <li key={`${section.label}-${i}`} className="flex items-baseline justify-between gap-4 px-6 py-5 hover:bg-cream/20 transition-colors duration-150">
+                      <li key={`${section.key}-${i}`} className="flex items-baseline justify-between gap-4 px-6 py-5 hover:bg-cream/20 transition-colors duration-150">
                         <span className="font-body text-text text-lg leading-snug flex-1">
-                          {item.name}
+                          {getItemName(section.key, i, item.name)}
                         </span>
                         <span className="font-display text-xl text-rust font-medium shrink-0 tabular-nums">
                           {formatPrice(item.price)}
@@ -115,7 +135,7 @@ export default function Menu() {
                 {menuContent[activeTab].map((item, i) => (
                   <li key={i} className="flex items-baseline justify-between gap-4 px-6 py-5 hover:bg-cream/20 transition-colors duration-150">
                     <span className="font-body text-text text-lg leading-snug flex-1">
-                      {item.name}
+                      {getItemName(activeTab, i, item.name)}
                     </span>
                     <span className="font-display text-xl text-rust font-medium shrink-0 tabular-nums">
                       {formatPrice(item.price)}

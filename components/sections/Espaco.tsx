@@ -16,6 +16,7 @@ const spaceImages = [
 
 export default function Espaco() {
   const t = useTranslations('espaco')
+  const tR = useTranslations('reservas')
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10% 0px' })
 
@@ -38,8 +39,16 @@ export default function Espaco() {
               <p className="font-body text-text/80 text-lg leading-relaxed">{t('p2')}</p>
             </div>
 
+            {/* Notes */}
+            <div className="mt-10 border-t border-cream">
+              <div className="py-8 space-y-1">
+                <p className="font-display text-xl text-rust font-medium">📋 {tR('reservationsRequired')}</p>
+                <p className="font-display text-xl text-rust font-medium">💵 {tR('paymentMethod')}</p>
+              </div>
+            </div>
+
             {/* Stats */}
-            <div className="flex gap-10 mt-10 pt-10 border-t border-cream">
+            <div className="flex gap-10 pt-8 border-t border-cream">
               <div>
                 <p className="font-display text-4xl text-rust font-light">60</p>
                 <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">{t('capacity')}</p>

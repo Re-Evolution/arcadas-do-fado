@@ -11,14 +11,15 @@
     "reservas": "Reservations",
     "testemunhos": "Testimonials",
     "contactos": "Contact",
-    "reservarMesa": "Book a Table"
+    "reservarMesa": "Reservations"
   },
   "hero": {
     "title": "A Fado Night in the Algarve",
     "subtitle": "Portuguese cuisine and live fado music in Almancil",
-    "ctaPrimary": "Book a Table",
-    "ctaSecondary": "View Menu",
-    "badge": "Show every Friday & Saturday · 9:30 PM"
+    "ctaPrimary": "Reservations",
+    "ctaSecondary": "Menu",
+    "badge": "Show every Friday & Saturday · 9:30 PM",
+    "scrollText": "Learn more"
   },
   "espaco": {
     "sectionLabel": "The Space",
@@ -58,6 +59,42 @@
     "title": "Portuguese Gastronomy",
     "subtitle": "Traditional flavours with a contemporary presentation",
     "vatNote": "Prices include VAT at the applicable legal rate",
+    "items": {
+      "couvert": {
+        "0": "Bread, butter, olives and carrots"
+      },
+      "entradas": {
+        "0": "Sautéed mushrooms with bacon and cheese",
+        "1": "Fried shrimp with garlic"
+      },
+      "saladas": {
+        "0": "Mixed salad",
+        "1": "Tomato salad with cheese and herbs",
+        "2": "Fresh smoked salmon salad with goat cheese, ginger dressing, honey and mustard"
+      },
+      "vegetariano": {
+        "0": "Vegetable lasagne"
+      },
+      "peixe": {
+        "0": "Sea bass fillets with creamy orange sauce, tarragon and toasted almond flakes",
+        "1": "Bacalhau à Brás",
+        "2": "Arcadas do Fado shrimp açorda",
+        "3": "Arcadas do Fado baby squid"
+      },
+      "carne": {
+        "0": "Milk lamb with mashed potatoes, vegetables, fig sauce and mushrooms",
+        "1": "Pork cheeks on mashed potatoes with fig sauce and mushrooms",
+        "2": "Duck rice"
+      },
+      "sobremesas": {
+        "0": "Creamy rice pudding",
+        "1": "Chocolate brownie with ice cream",
+        "2": "Petit Gâteau with ice cream",
+        "3": "Profiteroles filled with ice cream covered in hot chocolate",
+        "4": "Ice cream bowl",
+        "5": "Fruit"
+      }
+    },
     "tabs": {
       "couvert": "Couvert",
       "entradas": "Starters",
@@ -72,13 +109,15 @@
     "sectionLabel": "Reservations",
     "title": "Book Your Table",
     "note": "Reservations required · Fado show at 9:30 PM",
-    "scheduleTitle": "Opening Hours",
+    "scheduleTitle": "More Information",
     "fridaySat": "Friday & Saturday",
     "fridaySatHours": "8:00 PM – 11:45 PM",
     "tueThu": "Tuesday to Thursday",
     "tueThuHours": "Reservations for groups of 20+ only",
     "sunMon": "Sunday & Monday",
     "sunMonHours": "Closed",
+    "reservationsRequired": "Reservations required",
+    "paymentMethod": "Payment method: Cash",
     "form": {
       "name": "Full name",
       "namePlaceholder": "Your name",
@@ -143,7 +182,7 @@
   },
   "testemunhos": {
     "sectionLabel": "Testimonials",
-    "title": "What Our Guests Say",
+    "title": "What Our Clients Say",
     "source": "Google Maps"
   },
   "contactos": {

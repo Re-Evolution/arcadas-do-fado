@@ -11,14 +11,15 @@
     "reservas": "Reservas",
     "testemunhos": "Testemunhos",
     "contactos": "Contactos",
-    "reservarMesa": "Reservar Mesa"
+    "reservarMesa": "Reservas"
   },
   "hero": {
     "title": "Uma Noite de Fado no Algarve",
     "subtitle": "Gastronomia portuguesa e fado ao vivo em Almancil",
-    "ctaPrimary": "Reservar Mesa",
-    "ctaSecondary": "Ver Menu",
-    "badge": "Espetáculo todas as Sextas e Sábados · 21h30"
+    "ctaPrimary": "Reservas",
+    "ctaSecondary": "Menu",
+    "badge": "Espetáculo todas as Sextas e Sábados · 21h30",
+    "scrollText": "Saber mais"
   },
   "espaco": {
     "sectionLabel": "O Espaço",
@@ -58,6 +59,42 @@
     "title": "Gastronomia Portuguesa",
     "subtitle": "Sabores tradicionais com apresentação contemporânea",
     "vatNote": "Preços incluem IVA à taxa legal em vigor",
+    "items": {
+      "couvert": {
+        "0": "Pão, manteiga, azeitonas e cenouras"
+      },
+      "entradas": {
+        "0": "Cogumelos salteados com bacon e queijo",
+        "1": "Camarão frito ao alhinho"
+      },
+      "saladas": {
+        "0": "Salada mista",
+        "1": "Salada de tomate com queijo e ervas",
+        "2": "Salada fresca de salmão fumado com queijo de cabra, molho gengibre, mel e mostarda"
+      },
+      "vegetariano": {
+        "0": "Lasanha de vegetais"
+      },
+      "peixe": {
+        "0": "Filetes de robalo com molho cremoso de laranja, estragão e laminado de amêndoa torrada",
+        "1": "Bacalhau à Brás",
+        "2": "Açorda de camarão à Arcadas do Fado",
+        "3": "Lulinhas à Arcadas do Fado"
+      },
+      "carne": {
+        "0": "Cordeiro de leite com esmagado de batata, legumes, molho de figo e cogumelos",
+        "1": "Bochechas de porco em cama de esmagado de batata com molho de figos e cogumelos",
+        "2": "Arroz de Pato"
+      },
+      "sobremesas": {
+        "0": "Arroz doce cremoso",
+        "1": "Brownie de chocolate com gelado",
+        "2": "Petit Gâteau com gelado",
+        "3": "Profiteroles recheados com gelado cobertos com chocolate quente",
+        "4": "Taça de gelado",
+        "5": "Fruta"
+      }
+    },
     "tabs": {
       "couvert": "Couvert",
       "entradas": "Entradas",
@@ -72,13 +109,15 @@
     "sectionLabel": "Reservas",
     "title": "Reserve a Sua Mesa",
     "note": "Reservas obrigatórias · Espetáculo de fado às 21h30",
-    "scheduleTitle": "Horário",
+    "scheduleTitle": "Mais Informação",
     "fridaySat": "Sexta e Sábado",
     "fridaySatHours": "20h00 – 23h45",
     "tueThu": "Terça a Quinta",
     "tueThuHours": "Reservas para grupos ≥ 20 pessoas",
     "sunMon": "Domingo e Segunda",
     "sunMonHours": "Encerrado",
+    "reservationsRequired": "Reservas obrigatórias",
+    "paymentMethod": "Método de pagamento: Dinheiro",
     "form": {
       "name": "Nome completo",
       "namePlaceholder": "O seu nome",
@@ -143,7 +182,7 @@
   },
   "testemunhos": {
     "sectionLabel": "Testemunhos",
-    "title": "O Que Dizem os Nossos Hóspedes",
+    "title": "O Que Dizem os Nossos Clientes",
     "source": "Google Maps"
   },
   "contactos": {

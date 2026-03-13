@@ -11,9 +11,7 @@ import { trackNavigation, trackCTA } from '@/lib/analytics'
 const navItems = [
   { key: 'espaco', href: '#espaco' },
   { key: 'fado', href: '#fado' },
-  { key: 'menu', href: '#menu' },
   { key: 'reservas', href: '#reservas' },
-  { key: 'testemunhos', href: '#testemunhos' },
   { key: 'contactos', href: '#contactos' },
 ]
 

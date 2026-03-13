@@ -124,7 +124,7 @@ export default function Hero() {
           <a
             href="#reservas"
             onClick={() => trackCTA(t('ctaPrimary'), 'hero', '#reservas')}
-            className="btn-primary text-base px-10 py-4 w-full sm:w-auto"
+            className="btn-primary text-base px-10 py-4 w-full sm:w-auto sm:min-w-[200px]"
             aria-label="Reservar mesa no restaurante Arcadas do Fado"
           >
             {t('ctaPrimary')}
@@ -132,7 +132,7 @@ export default function Hero() {
           <a
             href="#menu"
             onClick={() => trackCTA(t('ctaSecondary'), 'hero', '#menu')}
-            className="btn-secondary text-base px-10 py-4 w-full sm:w-auto"
+            className="btn-secondary text-base px-10 py-4 w-full sm:w-auto sm:min-w-[200px]"
           >
             {t('ctaSecondary')}
           </a>
@@ -147,8 +147,12 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
         aria-hidden="true"
       >
-        <span className="font-sans text-white/40 text-xs tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
+        <span className="font-sans text-white/60 text-xs tracking-widest uppercase">{t('scrollText')}</span>
+        <div className="w-9 h-9 rounded-full border border-white/40 flex items-center justify-center">
+          <svg className="w-4 h-4 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
       </motion.div>
 
     </section>

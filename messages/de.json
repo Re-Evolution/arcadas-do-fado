@@ -11,14 +11,15 @@
     "reservas": "Reservierungen",
     "testemunhos": "Erfahrungsberichte",
     "contactos": "Kontakt",
-    "reservarMesa": "Tisch Reservieren"
+    "reservarMesa": "Reservierungen"
   },
   "hero": {
     "title": "Eine Fado-Nacht im Algarve",
     "subtitle": "Portugiesische Küche und Live-Fado in Almancil",
-    "ctaPrimary": "Tisch Reservieren",
-    "ctaSecondary": "Speisekarte ansehen",
-    "badge": "Show jeden Freitag & Samstag · 21:30 Uhr"
+    "ctaPrimary": "Reservierungen",
+    "ctaSecondary": "Speisekarte",
+    "badge": "Show jeden Freitag & Samstag · 21:30 Uhr",
+    "scrollText": "Mehr erfahren"
   },
   "espaco": {
     "sectionLabel": "Der Raum",
@@ -58,6 +59,42 @@
     "title": "Portugiesische Gastronomie",
     "subtitle": "Traditionelle Aromen mit zeitgenössischer Präsentation",
     "vatNote": "Preise inkl. MwSt. zum gesetzlichen Steuersatz",
+    "items": {
+      "couvert": {
+        "0": "Brot, Butter, Oliven und Karotten"
+      },
+      "entradas": {
+        "0": "Gebratene Champignons mit Speck und Käse",
+        "1": "Gebratene Garnelen mit Knoblauch"
+      },
+      "saladas": {
+        "0": "Gemischter Salat",
+        "1": "Tomatensalat mit Käse und Kräutern",
+        "2": "Frischer Räucherlachssalat mit Ziegenkäse, Ingwerdressing, Honig und Senf"
+      },
+      "vegetariano": {
+        "0": "Gemüselasagne"
+      },
+      "peixe": {
+        "0": "Wolfsbarschfilets mit cremiger Orangensauce, Estragon und gerösteten Mandelblättchen",
+        "1": "Bacalhau à Brás",
+        "2": "Arcadas do Fado Garnelen-Açorda",
+        "3": "Arcadas do Fado Tintenfisch"
+      },
+      "carne": {
+        "0": "Milchlammkeule mit Kartoffelpüree, Gemüse, Feigensauce und Pilzen",
+        "1": "Schweinebäckchen auf Kartoffelpüree mit Feigensauce und Pilzen",
+        "2": "Entenreis"
+      },
+      "sobremesas": {
+        "0": "Cremiger Milchreis",
+        "1": "Schokoladenbrownies mit Eis",
+        "2": "Petit Gâteau mit Eis",
+        "3": "Profiteroles mit Eis gefüllt und heißer Schokolade übergossen",
+        "4": "Eisbecher",
+        "5": "Obst"
+      }
+    },
     "tabs": {
       "couvert": "Couvert",
       "entradas": "Vorspeisen",
@@ -72,13 +109,15 @@
     "sectionLabel": "Reservierungen",
     "title": "Reservieren Sie Ihren Tisch",
     "note": "Reservierung erforderlich · Fado-Show um 21:30 Uhr",
-    "scheduleTitle": "Öffnungszeiten",
+    "scheduleTitle": "Mehr Informationen",
     "fridaySat": "Freitag & Samstag",
     "fridaySatHours": "20:00 – 23:45 Uhr",
     "tueThu": "Dienstag bis Donnerstag",
     "tueThuHours": "Reservierungen nur für Gruppen ab 20 Personen",
     "sunMon": "Sonntag & Montag",
     "sunMonHours": "Geschlossen",
+    "reservationsRequired": "Reservierung erforderlich",
+    "paymentMethod": "Zahlungsmethode: Bar",
     "form": {
       "name": "Vollständiger Name",
       "namePlaceholder": "Ihr Name",
@@ -143,7 +182,7 @@
   },
   "testemunhos": {
     "sectionLabel": "Erfahrungsberichte",
-    "title": "Was Unsere Gäste Sagen",
+    "title": "Was Unsere Kunden Sagen",
     "source": "Google Maps"
   },
   "contactos": {

@@ -11,14 +11,15 @@
     "reservas": "Réservations",
     "testemunhos": "Témoignages",
     "contactos": "Contact",
-    "reservarMesa": "Réserver une Table"
+    "reservarMesa": "Réservations"
   },
   "hero": {
     "title": "Une Nuit de Fado en Algarve",
     "subtitle": "Cuisine portugaise et fado en direct à Almancil",
-    "ctaPrimary": "Réserver une Table",
-    "ctaSecondary": "Voir le Menu",
-    "badge": "Spectacle chaque Vendredi & Samedi · 21h30"
+    "ctaPrimary": "Réservations",
+    "ctaSecondary": "Menu",
+    "badge": "Spectacle chaque Vendredi & Samedi · 21h30",
+    "scrollText": "En savoir plus"
   },
   "espaco": {
     "sectionLabel": "L'Espace",
@@ -58,6 +59,42 @@
     "title": "Gastronomie Portugaise",
     "subtitle": "Saveurs traditionnelles avec une présentation contemporaine",
     "vatNote": "Prix TTC au taux légal en vigueur",
+    "items": {
+      "couvert": {
+        "0": "Pain, beurre, olives et carottes"
+      },
+      "entradas": {
+        "0": "Champignons sautés avec bacon et fromage",
+        "1": "Crevettes frites à l'ail"
+      },
+      "saladas": {
+        "0": "Salade mixte",
+        "1": "Salade de tomates au fromage et aux herbes",
+        "2": "Salade fraîche de saumon fumé au fromage de chèvre, vinaigrette au gingembre, miel et moutarde"
+      },
+      "vegetariano": {
+        "0": "Lasagnes végétariennes"
+      },
+      "peixe": {
+        "0": "Filets de bar à la sauce crémeuse à l'orange, estragon et amandes effilées grillées",
+        "1": "Bacalhau à Brás",
+        "2": "Açorda de crevettes Arcadas do Fado",
+        "3": "Calamars Arcadas do Fado"
+      },
+      "carne": {
+        "0": "Agneau de lait avec purée de pommes de terre, légumes, sauce aux figues et champignons",
+        "1": "Joues de porc sur purée de pommes de terre avec sauce aux figues et champignons",
+        "2": "Riz au canard"
+      },
+      "sobremesas": {
+        "0": "Riz au lait crémeux",
+        "1": "Brownie au chocolat avec glace",
+        "2": "Petit Gâteau avec glace",
+        "3": "Profiteroles fourrés à la glace nappés de chocolat chaud",
+        "4": "Coupe de glace",
+        "5": "Fruits"
+      }
+    },
     "tabs": {
       "couvert": "Couvert",
       "entradas": "Entrées",
@@ -72,13 +109,15 @@
     "sectionLabel": "Réservations",
     "title": "Réservez Votre Table",
     "note": "Réservations obligatoires · Spectacle de fado à 21h30",
-    "scheduleTitle": "Horaires",
+    "scheduleTitle": "Plus d'informations",
     "fridaySat": "Vendredi & Samedi",
     "fridaySatHours": "20h00 – 23h45",
     "tueThu": "Mardi au Jeudi",
     "tueThuHours": "Réservations pour groupes de 20+ uniquement",
     "sunMon": "Dimanche & Lundi",
     "sunMonHours": "Fermé",
+    "reservationsRequired": "Réservations obligatoires",
+    "paymentMethod": "Mode de paiement : Espèces",
     "form": {
       "name": "Nom complet",
       "namePlaceholder": "Votre nom",
@@ -143,7 +182,7 @@
   },
   "testemunhos": {
     "sectionLabel": "Témoignages",
-    "title": "Ce Que Disent Nos Hôtes",
+    "title": "Ce Que Disent Nos Clients",
     "source": "Google Maps"
   },
   "contactos": {
