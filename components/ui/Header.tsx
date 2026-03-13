@@ -33,14 +33,28 @@ export default function Header() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const handleNavClick = (key: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, key: string, href: string) => {
+    e.preventDefault()
     trackNavigation(key)
+    // Immediately clear body overflow so the page can scroll to the anchor
+    document.body.style.overflow = ''
     setMenuOpen(false)
+    // Small delay so the menu closes before scrolling
+    setTimeout(() => {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }, 50)
   }
 
-  const handleReserve = () => {
+  const handleReserve = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
     trackCTA('Reservar Mesa', 'header', '#reservas')
+    document.body.style.overflow = ''
     setMenuOpen(false)
+    setTimeout(() => {
+      const el = document.querySelector('#reservas')
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }, 50)
   }
 
   return (
@@ -74,7 +88,7 @@ export default function Header() {
               <a
                 key={key}
                 href={href}
-                onClick={() => handleNavClick(key)}
+                onClick={(e) => handleNavClick(e, key, href)}
                 className={`px-4 py-2 font-sans text-xl lg:text-2xl font-medium rounded-lg transition-colors duration-200 ${
                   scrolled
                     ? 'text-text/70 hover:text-text hover:bg-cream/60'
@@ -144,7 +158,7 @@ export default function Header() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => handleNavClick(key)}
+                  onClick={(e) => handleNavClick(e, key, href)}
                   className="px-4 py-3 font-sans text-base font-medium text-text/80 hover:text-text hover:bg-cream/40 rounded-xl transition-colors duration-200"
                 >
                   {t(key as keyof ReturnType<typeof t>)}
@@ -159,9 +173,7 @@ export default function Header() {
                 >
                   {t('reservarMesa')}
                 </a>
-                <div className="flex justify-center">
-                  <LanguageSwitcher />
-                </div>
+                <LanguageSwitcher variant="inline" />
               </div>
             </nav>
           </motion.div>

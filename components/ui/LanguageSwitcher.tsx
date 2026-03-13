@@ -29,9 +29,10 @@ function FlagImg({ code, name }: { code: string; name: string }) {
 interface LanguageSwitcherProps {
   className?: string
   isDark?: boolean
+  variant?: 'dropdown' | 'inline'
 }
 
-export default function LanguageSwitcher({ className = '', isDark = false }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ className = '', isDark = false, variant = 'dropdown' }: LanguageSwitcherProps) {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
@@ -61,6 +62,29 @@ export default function LanguageSwitcher({ className = '', isDark = false }: Lan
   const textColor = isDark
     ? 'text-white/80 hover:text-white'
     : 'text-text/70 hover:text-text'
+
+  // Inline variant: show all languages as buttons (for mobile menu)
+  if (variant === 'inline') {
+    return (
+      <div className={`flex flex-wrap gap-2 ${className}`}>
+        {languages.map((lang) => (
+          <button
+            key={lang.code}
+            onClick={() => switchLocale(lang.code)}
+            aria-pressed={lang.code === locale}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg font-sans text-sm font-medium transition-colors duration-150 border ${
+              lang.code === locale
+                ? 'bg-cream text-rust border-rust/20 font-semibold'
+                : 'text-text/70 hover:text-text hover:bg-cream/40 border-transparent'
+            }`}
+          >
+            <FlagImg code={lang.flagCode} name={lang.name} />
+            <span>{lang.name}</span>
+          </button>
+        ))}
+      </div>
+    )
+  }
 
   return (
     <div ref={ref} className={`relative ${className}`}>
