@@ -52,13 +52,49 @@
     "show4Label": "Alexandra cierra la noche",
     "show4Desc": "La voz que cada noche merece",
     "coverCharge": "Entrada al espectáculo: 5,00 € por persona",
-    "cta": "Reservar Mesa"
+    "cta": "Reservas"
   },
   "menu": {
     "sectionLabel": "Menú",
     "title": "Gastronomía Portuguesa",
     "subtitle": "Sabores tradicionales con presentación contemporánea",
     "vatNote": "Precios incluyen IVA al tipo legal vigente",
+    "items": {
+      "couvert": {
+        "0": "Pan, mantequilla, aceitunas y zanahorias"
+      },
+      "entradas": {
+        "0": "Champiñones salteados con bacon y queso",
+        "1": "Gambas fritas al ajillo"
+      },
+      "saladas": {
+        "0": "Ensalada mixta",
+        "1": "Ensalada de tomate con queso y hierbas",
+        "2": "Ensalada fresca de salmón ahumado con queso de cabra, vinagreta de jengibre, miel y mostaza"
+      },
+      "vegetariano": {
+        "0": "Lasaña de verduras"
+      },
+      "peixe": {
+        "0": "Filetes de lubina con salsa cremosa de naranja, estragón y láminas de almendra tostada",
+        "1": "Bacalao à Brás",
+        "2": "Açorda de gambas à Arcadas do Fado",
+        "3": "Chipirones à Arcadas do Fado"
+      },
+      "carne": {
+        "0": "Cordero lechal con puré de patata, verduras, salsa de higo y champiñones",
+        "1": "Carrilleras de cerdo sobre puré de patata con salsa de higos y champiñones",
+        "2": "Arroz de Pato"
+      },
+      "sobremesas": {
+        "0": "Arroz con leche cremoso",
+        "1": "Brownie de chocolate con helado",
+        "2": "Petit Gâteau con helado",
+        "3": "Profiteroles rellenos de helado con chocolate caliente",
+        "4": "Copa de helado",
+        "5": "Fruta"
+      }
+    },
     "tabs": {
       "couvert": "Cubierto",
       "entradas": "Entrantes",

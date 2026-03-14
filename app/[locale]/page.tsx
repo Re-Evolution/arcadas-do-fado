@@ -1,14 +1,16 @@
 import { getTranslations } from 'next-intl/server'
+import dynamic from 'next/dynamic'
 import Header from '@/components/ui/Header'
-import Footer from '@/components/ui/Footer'
-import CookieBanner from '@/components/ui/CookieBanner'
 import Hero from '@/components/sections/Hero'
-import Espaco from '@/components/sections/Espaco'
-import Fado from '@/components/sections/Fado'
-import Menu from '@/components/sections/Menu'
-import Reservas from '@/components/sections/Reservas'
-import Testemunhos from '@/components/sections/Testemunhos'
-import Contactos from '@/components/sections/Contactos'
+
+const Footer = dynamic(() => import('@/components/ui/Footer'))
+const CookieBanner = dynamic(() => import('@/components/ui/CookieBanner'))
+const Espaco = dynamic(() => import('@/components/sections/Espaco'))
+const Fado = dynamic(() => import('@/components/sections/Fado'))
+const Menu = dynamic(() => import('@/components/sections/Menu'))
+const Reservas = dynamic(() => import('@/components/sections/Reservas'))
+const Testemunhos = dynamic(() => import('@/components/sections/Testemunhos'))
+const Contactos = dynamic(() => import('@/components/sections/Contactos'))
 
 interface PageProps {
   params: Promise<{ locale: string }>
