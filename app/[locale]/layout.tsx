@@ -177,7 +177,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaEvent) }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <a href="#main-content" className="skip-link">
           Saltar para o conteúdo principal
         </a>

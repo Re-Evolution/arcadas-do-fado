@@ -82,6 +82,18 @@ export default function Header() {
             />
           </Link>
 
+          {/* Mobile CTA — always visible, centered */}
+          <div className="flex-1 flex justify-center sm:hidden">
+            <a
+              href="#reservas"
+              onClick={handleReserve}
+              className="btn-primary text-sm px-4 py-2"
+              aria-label="Reservar mesa no restaurante Arcadas do Fado"
+            >
+              {t('reservarMesa')}
+            </a>
+          </div>
+
           {/* Desktop nav */}
           <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-1">
             {navItems.map(({ key, href }) => (
