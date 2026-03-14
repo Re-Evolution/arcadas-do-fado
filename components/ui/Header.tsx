@@ -69,7 +69,7 @@ export default function Header() {
       role="banner"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+        <div className="relative flex items-center justify-between gap-4">
           {/* Logo */}
           <Link
             href={`/${locale}`}
@@ -82,8 +82,8 @@ export default function Header() {
             />
           </Link>
 
-          {/* Mobile CTA — always visible, centered */}
-          <div className="flex-1 flex justify-center sm:hidden">
+          {/* Mobile CTA — absolutely centered relative to header width */}
+          <div className="absolute left-1/2 -translate-x-1/2 sm:hidden">
             <a
               href="#reservas"
               onClick={handleReserve}
