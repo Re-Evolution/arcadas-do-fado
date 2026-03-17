@@ -48,7 +48,7 @@
     "show2Label": "Gast-Fadistas",
     "show2Desc": "1 bis 2 Fadistas pro Abend, im Wechsel",
     "show3Label": "Portugiesische Gitarristen",
-    "show3Desc": "Zwei Meister der portugiesischen Gitarre",
+    "show3Desc": "Zwei Meister der Saiten",
     "show4Label": "Alexandra schließt den Abend",
     "show4Desc": "Die Stimme, die jeder Abend verdient",
     "coverCharge": "Eintrittsgebühr: 5,00 € pro Person",
@@ -69,7 +69,7 @@
       },
       "saladas": {
         "0": "Gemischter Salat",
-        "1": "Tomatensalat mit Käse und Kräutern",
+        "1": "Tomatensalat mit Ziegenkäse und Kräutern",
         "2": "Frischer Räucherlachssalat mit Ziegenkäse, Ingwerdressing, Honig und Senf"
       },
       "vegetariano": {

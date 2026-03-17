@@ -48,7 +48,7 @@
     "show2Label": "Guest Fadistas",
     "show2Desc": "1 to 2 fadistas per night, in rotation",
     "show3Label": "Portuguese Guitarists",
-    "show3Desc": "Two masters of the Portuguese guitar",
+    "show3Desc": "Two Masters of the Strings",
     "show4Label": "Alexandra closes the night",
     "show4Desc": "The voice every night deserves",
     "coverCharge": "Cover charge: €5.00 per person",
@@ -69,7 +69,7 @@
       },
       "saladas": {
         "0": "Mixed salad",
-        "1": "Tomato salad with cheese and herbs",
+        "1": "Tomato salad with goat cheese and herbs",
         "2": "Fresh smoked salmon salad with goat cheese, ginger dressing, honey and mustard"
       },
       "vegetariano": {

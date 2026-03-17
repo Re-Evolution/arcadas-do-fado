@@ -48,7 +48,7 @@
     "show2Label": "Fadistas Invitados",
     "show2Desc": "1 a 2 fadistas por noche, en rotación",
     "show3Label": "Guitarristas Portugueses",
-    "show3Desc": "Dos maestros de la guitarra portuguesa",
+    "show3Desc": "Dos Maestros de las Cuerdas",
     "show4Label": "Alexandra cierra la noche",
     "show4Desc": "La voz que cada noche merece",
     "coverCharge": "Entrada al espectáculo: 5,00 € por persona",
@@ -69,7 +69,7 @@
       },
       "saladas": {
         "0": "Ensalada mixta",
-        "1": "Ensalada de tomate con queso y hierbas",
+        "1": "Ensalada de tomate con queso de cabra y hierbas",
         "2": "Ensalada fresca de salmón ahumado con queso de cabra, vinagreta de jengibre, miel y mostaza"
       },
       "vegetariano": {

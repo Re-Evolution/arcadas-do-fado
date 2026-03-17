@@ -17,6 +17,112 @@ function getClientIP(req: NextRequest): string {
   )
 }
 
+const emailI18n: Record<string, {
+  title: string
+  headerTitle: string
+  greeting: (name: string) => string
+  bodyText: string
+  detailsLabel: string
+  dateLabel: string
+  timeLabel: string
+  guestsLabel: string
+  occasionLabel: string
+  notesLabel: string
+  showReminder: string
+  contactText: string
+  occasionMap: Record<string, string>
+  waMessage: (name: string, guests: number, date: string, time: string) => string
+}> = {
+  pt: {
+    title: 'Pedido de Reserva Recebido — Arcadas do Fado',
+    headerTitle: 'Pedido de Reserva Recebido',
+    greeting: (name) => `Caro/a <strong>${name}</strong>,`,
+    bodyText: 'Obrigado pelo seu pedido de reserva nas Arcadas do Fado. Recebemos o seu pedido e entraremos em contacto brevemente para confirmar a sua reserva.',
+    detailsLabel: 'Detalhes da Reserva',
+    dateLabel: '📅 Data',
+    timeLabel: '🕗 Hora',
+    guestsLabel: '👥 Pessoas',
+    occasionLabel: '🎉 Ocasião',
+    notesLabel: '📝 Observações',
+    showReminder: '🎶 Espetáculo de Fado ao Vivo às 21h30 (Sextas e Sábados)',
+    contactText: 'Para qualquer questão, contacte-nos:',
+    occasionMap: { birthday: 'Aniversário', honeymoon: 'Lua de mel', celebration: 'Celebração', other: 'Outro', none: '—' },
+    waMessage: (name, guests, date, time) => `Olá ${name}! As Arcadas do Fado confirmam a sua reserva para ${guests} pessoas no dia ${date} às ${time}. Aguardamos a sua visita! ♪♫`,
+  },
+  en: {
+    title: 'Reservation Request Received — Arcadas do Fado',
+    headerTitle: 'Reservation Request Received',
+    greeting: (name) => `Dear <strong>${name}</strong>,`,
+    bodyText: 'Thank you for your reservation request at Arcadas do Fado. We have received your request and will contact you shortly to confirm your reservation.',
+    detailsLabel: 'Reservation Details',
+    dateLabel: '📅 Date',
+    timeLabel: '🕗 Time',
+    guestsLabel: '👥 Guests',
+    occasionLabel: '🎉 Occasion',
+    notesLabel: '📝 Notes',
+    showReminder: '🎶 Live Fado Show at 9:30 PM (Fridays & Saturdays)',
+    contactText: 'For any questions, please contact us:',
+    occasionMap: { birthday: 'Birthday', honeymoon: 'Honeymoon', celebration: 'Celebration', other: 'Other', none: '—' },
+    waMessage: (name, guests, date, time) => `Hello ${name}! Arcadas do Fado confirms your reservation for ${guests} guests on ${date} at ${time}. We look forward to welcoming you! ♪♫`,
+  },
+  fr: {
+    title: 'Demande de Réservation Reçue — Arcadas do Fado',
+    headerTitle: 'Demande de Réservation Reçue',
+    greeting: (name) => `Cher/Chère <strong>${name}</strong>,`,
+    bodyText: 'Merci pour votre demande de réservation aux Arcadas do Fado. Nous avons bien reçu votre demande et vous contacterons prochainement pour confirmer votre réservation.',
+    detailsLabel: 'Détails de la Réservation',
+    dateLabel: '📅 Date',
+    timeLabel: '🕗 Heure',
+    guestsLabel: '👥 Personnes',
+    occasionLabel: '🎉 Occasion',
+    notesLabel: '📝 Remarques',
+    showReminder: '🎶 Spectacle de Fado en Direct à 21h30 (Vendredis & Samedis)',
+    contactText: 'Pour toute question, n\'hésitez pas à nous contacter :',
+    occasionMap: { birthday: 'Anniversaire', honeymoon: 'Lune de miel', celebration: 'Célébration', other: 'Autre', none: '—' },
+    waMessage: (name, guests, date, time) => `Bonjour ${name} ! Les Arcadas do Fado confirment votre réservation pour ${guests} personnes le ${date} à ${time}. Nous vous attendons avec impatience ! ♪♫`,
+  },
+  de: {
+    title: 'Reservierungsanfrage Erhalten — Arcadas do Fado',
+    headerTitle: 'Reservierungsanfrage Erhalten',
+    greeting: (name) => `Sehr geehrte/r <strong>${name}</strong>,`,
+    bodyText: 'Vielen Dank für Ihre Reservierungsanfrage im Arcadas do Fado. Wir haben Ihre Anfrage erhalten und werden uns in Kürze mit Ihnen in Verbindung setzen, um Ihre Reservierung zu bestätigen.',
+    detailsLabel: 'Reservierungsdetails',
+    dateLabel: '📅 Datum',
+    timeLabel: '🕗 Uhrzeit',
+    guestsLabel: '👥 Personen',
+    occasionLabel: '🎉 Anlass',
+    notesLabel: '📝 Anmerkungen',
+    showReminder: '🎶 Live-Fado-Show um 21:30 Uhr (Freitag & Samstag)',
+    contactText: 'Bei Fragen stehen wir Ihnen gerne zur Verfügung:',
+    occasionMap: { birthday: 'Geburtstag', honeymoon: 'Flitterwochen', celebration: 'Feier', other: 'Sonstiges', none: '—' },
+    waMessage: (name, guests, date, time) => `Hallo ${name}! Das Arcadas do Fado bestätigt Ihre Reservierung für ${guests} Personen am ${date} um ${time}. Wir freuen uns auf Ihren Besuch! ♪♫`,
+  },
+  es: {
+    title: 'Solicitud de Reserva Recibida — Arcadas do Fado',
+    headerTitle: 'Solicitud de Reserva Recibida',
+    greeting: (name) => `Estimado/a <strong>${name}</strong>,`,
+    bodyText: 'Gracias por su solicitud de reserva en Arcadas do Fado. Hemos recibido su solicitud y nos pondremos en contacto con usted a la brevedad para confirmar su reserva.',
+    detailsLabel: 'Detalles de la Reserva',
+    dateLabel: '📅 Fecha',
+    timeLabel: '🕗 Hora',
+    guestsLabel: '👥 Personas',
+    occasionLabel: '🎉 Ocasión',
+    notesLabel: '📝 Observaciones',
+    showReminder: '🎶 Espectáculo de Fado en Directo a las 21:30 (Viernes y Sábados)',
+    contactText: 'Para cualquier consulta, contáctenos:',
+    occasionMap: { birthday: 'Cumpleaños', honeymoon: 'Luna de miel', celebration: 'Celebración', other: 'Otro', none: '—' },
+    waMessage: (name, guests, date, time) => `¡Hola ${name}! Arcadas do Fado confirma su reserva para ${guests} personas el ${date} a las ${time}. ¡Le esperamos! ♪♫`,
+  },
+}
+
+const localeName: Record<string, string> = {
+  pt: 'Português 🇵🇹',
+  en: 'Inglês 🇬🇧',
+  fr: 'Francês 🇫🇷',
+  de: 'Alemão 🇩🇪',
+  es: 'Espanhol 🇪🇸',
+}
+
 function buildEmailHtml(data: {
   name: string
   date: string
@@ -26,23 +132,18 @@ function buildEmailHtml(data: {
   notes?: string
   locale: string
 }): string {
+  const locale = data.locale in emailI18n ? data.locale : 'pt'
+  const i18n = emailI18n[locale]
   const dateFormatted = formatDatePT(data.date)
-  const occasionMap: Record<string, string> = {
-    birthday: 'Aniversário',
-    honeymoon: 'Lua de mel',
-    celebration: 'Celebração',
-    other: 'Outro',
-    none: '—',
-  }
-  const occasionLabel = data.occasion ? (occasionMap[data.occasion] ?? '—') : '—'
+  const occasionLabel = data.occasion ? (i18n.occasionMap[data.occasion] ?? '—') : '—'
 
   return `
 <!DOCTYPE html>
-<html lang="${data.locale}">
+<html lang="${locale}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedido de Reserva Recebido — Arcadas do Fado</title>
+  <title>${i18n.title}</title>
 </head>
 <body style="margin:0;padding:0;background:#F5EDD8;font-family:Georgia,serif;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F5EDD8;padding:40px 20px;">
@@ -52,29 +153,29 @@ function buildEmailHtml(data: {
         <tr>
           <td style="background:#2C1810;padding:32px;text-align:center;">
             <p style="color:#B5562A;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin:0 0 8px;">Arcadas do Fado</p>
-            <h1 style="color:#FDFAF6;font-size:24px;font-weight:300;margin:0;line-height:1.3;">Pedido de Reserva Recebido</h1>
+            <h1 style="color:#FDFAF6;font-size:24px;font-weight:300;margin:0;line-height:1.3;">${i18n.headerTitle}</h1>
             <p style="color:#D4845A;font-size:13px;margin:8px 0 0;">Almancil, Algarve</p>
           </td>
         </tr>
         <!-- Body -->
         <tr>
           <td style="padding:40px 32px;">
-            <p style="color:#3D2314;font-size:18px;margin:0 0 20px;">Caro/a <strong>${sanitizeInput(data.name)}</strong>,</p>
+            <p style="color:#3D2314;font-size:18px;margin:0 0 20px;">${i18n.greeting(sanitizeInput(data.name))}</p>
             <p style="color:#5a3a28;font-size:16px;line-height:1.7;margin:0 0 24px;">
-              Obrigado pelo seu pedido de reserva nas Arcadas do Fado. Recebemos o seu pedido e entraremos em contacto brevemente para confirmar a sua reserva.
+              ${i18n.bodyText}
             </p>
 
             <!-- Details box -->
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F5EDD8;border-radius:12px;padding:24px;margin:0 0 24px;">
               <tr><td>
-                <p style="color:#7A3318;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin:0 0 16px;">Detalhes da Reserva</p>
+                <p style="color:#7A3318;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin:0 0 16px;">${i18n.detailsLabel}</p>
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                   ${[
-                    ['📅 Data', dateFormatted],
-                    ['🕗 Hora', data.time],
-                    ['👥 Pessoas', String(data.guests)],
-                    ['🎉 Ocasião', occasionLabel],
-                    data.notes ? ['📝 Observações', sanitizeInput(data.notes)] : null,
+                    [i18n.dateLabel, dateFormatted],
+                    [i18n.timeLabel, data.time],
+                    [i18n.guestsLabel, String(data.guests)],
+                    [i18n.occasionLabel, occasionLabel],
+                    data.notes ? [i18n.notesLabel, sanitizeInput(data.notes)] : null,
                   ].filter(Boolean).map((row) => `
                     <tr>
                       <td style="color:#7A3318;font-size:13px;font-weight:600;padding:6px 12px 6px 0;width:130px;vertical-align:top;">${row![0]}</td>
@@ -87,11 +188,11 @@ function buildEmailHtml(data: {
 
             <!-- Show reminder -->
             <div style="background:#B5562A;border-radius:12px;padding:16px 20px;margin:0 0 24px;text-align:center;">
-              <p style="color:#FDFAF6;font-size:13px;margin:0;font-weight:500;">🎶 Espetáculo de Fado ao Vivo às 21h30 (Sextas e Sábados)</p>
+              <p style="color:#FDFAF6;font-size:13px;margin:0;font-weight:500;">${i18n.showReminder}</p>
             </div>
 
             <p style="color:#5a3a28;font-size:15px;line-height:1.7;margin:0 0 8px;">
-              Para qualquer questão, contacte-nos:
+              ${i18n.contactText}
             </p>
             <p style="color:#5a3a28;font-size:14px;margin:0;">
               📞 <a href="tel:+351289398113" style="color:#B5562A;">+351 289 398 113</a><br>
@@ -150,21 +251,156 @@ ${waLink}
 ❌ Se não tiver disponibilidade, contacte diretamente o cliente.`
 }
 
-async function sendTelegramNotification(message: string): Promise<void> {
-  const token = process.env.TELEGRAM_BOT_TOKEN
-  const chatId = process.env.TELEGRAM_CHAT_ID
+async function sendTelegramNotification(_message: string): Promise<void> {
+  // Telegram temporariamente congelado — notificações via email interno
+  return
+}
 
-  if (!token || !chatId || token === 'placeholder_substituir') return
+function buildInternalEmailHtml(data: {
+  name: string
+  date: string
+  time: string
+  guests: number
+  phone: string
+  email: string
+  occasion?: string
+  notes?: string
+  locale: string
+  waLink: string
+}): string {
+  const locale = data.locale in emailI18n ? data.locale : 'pt'
+  const i18n = emailI18n[locale]
+  const dateFormatted = formatDatePT(data.date)
+  const occasionLabel = data.occasion ? (i18n.occasionMap[data.occasion] ?? '—') : '—'
+  const clientLanguage = localeName[locale] ?? locale
 
-  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message,
-      parse_mode: 'Markdown',
-      disable_web_page_preview: true,
-    }),
+  return `
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Reserva — Arcadas do Fado</title>
+</head>
+<body style="margin:0;padding:0;background:#F5EDD8;font-family:Georgia,serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F5EDD8;padding:40px 20px;">
+    <tr><td align="center">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#FDFAF6;border-radius:16px;overflow:hidden;max-width:600px;width:100%;">
+        <!-- Header -->
+        <tr>
+          <td style="background:#2C1810;padding:32px;text-align:center;">
+            <p style="color:#B5562A;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin:0 0 8px;">Arcadas do Fado · Gestão</p>
+            <h1 style="color:#FDFAF6;font-size:24px;font-weight:300;margin:0;line-height:1.3;">Nova Reserva Recebida</h1>
+            <p style="color:#D4845A;font-size:13px;margin:8px 0 0;">Almancil, Algarve</p>
+          </td>
+        </tr>
+        <!-- Body -->
+        <tr>
+          <td style="padding:40px 32px;">
+            <p style="color:#3D2314;font-size:16px;line-height:1.7;margin:0 0 24px;">
+              Foi recebido um novo pedido de reserva. Consulte os detalhes abaixo e confirme a disponibilidade com o cliente.
+            </p>
+
+            <!-- Details box -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F5EDD8;border-radius:12px;padding:24px;margin:0 0 24px;">
+              <tr><td>
+                <p style="color:#7A3318;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin:0 0 16px;">Detalhes da Reserva</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  ${[
+                    ['👤 Nome', sanitizeInput(data.name)],
+                    ['📅 Data', dateFormatted],
+                    ['🕗 Hora', data.time],
+                    ['👥 Pessoas', String(data.guests)],
+                    ['🎉 Ocasião', occasionLabel],
+                    ['📞 Telefone', data.phone],
+                    ['📧 Email', data.email],
+                    ['🌐 Língua', clientLanguage],
+                    data.notes ? ['📝 Observações', sanitizeInput(data.notes)] : null,
+                  ].filter(Boolean).map((row) => `
+                    <tr>
+                      <td style="color:#7A3318;font-size:13px;font-weight:600;padding:6px 12px 6px 0;width:130px;vertical-align:top;">${row![0]}</td>
+                      <td style="color:#3D2314;font-size:14px;padding:6px 0;">${row![1]}</td>
+                    </tr>
+                  `).join('')}
+                </table>
+              </td></tr>
+            </table>
+
+            <!-- WhatsApp confirm button -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 16px;">
+              <tr><td align="center">
+                <a href="${data.waLink}" style="display:inline-block;background:#25D366;color:#ffffff;font-family:Georgia,serif;font-size:15px;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:10px;">
+                  ✅ Confirmar Reserva via WhatsApp
+                </a>
+              </td></tr>
+            </table>
+
+            <!-- No availability warning -->
+            <div style="background:#FDF3E7;border:1px solid #e8c99a;border-radius:12px;padding:16px 20px;text-align:center;">
+              <p style="color:#7A3318;font-size:13px;margin:0;font-weight:500;">
+                ❌ Sem disponibilidade? Contacte o cliente diretamente:<br>
+                <a href="tel:${data.phone}" style="color:#B5562A;font-weight:600;">${data.phone}</a>
+                &nbsp;·&nbsp;
+                <a href="mailto:${data.email}" style="color:#B5562A;font-weight:600;">${data.email}</a>
+              </p>
+            </div>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td style="background:#F5EDD8;padding:20px 32px;text-align:center;border-top:1px solid #e8d9b8;">
+            <p style="color:#9a7a64;font-size:12px;margin:0;">
+              Arcadas do Fado · Av. 5 de Outubro 85, 8135-100 Almancil<br>
+              © 2025 Arcadas do Fado. Todos os direitos reservados.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`
+}
+
+async function sendInternalNotificationEmail(data: {
+  name: string
+  date: string
+  time: string
+  guests: number
+  phone: string
+  email: string
+  occasion?: string
+  notes?: string
+  locale: string
+}): Promise<void> {
+  const host = process.env.EMAIL_SMTP_HOST
+  const user = process.env.EMAIL_SMTP_USER
+  const pass = process.env.EMAIL_SMTP_PASS
+  const from = process.env.EMAIL_FROM ?? 'reservas@arcadasdofado.com'
+
+  if (!host || host === 'placeholder_substituir' || !user || !pass) return
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port: parseInt(process.env.EMAIL_SMTP_PORT ?? '465'),
+    secure: parseInt(process.env.EMAIL_SMTP_PORT ?? '465') === 465,
+    auth: { user, pass },
+    tls: { rejectUnauthorized: false },
+  })
+
+  const locale = data.locale in emailI18n ? data.locale : 'pt'
+  const i18n = emailI18n[locale]
+  const dateFormatted = formatDatePT(data.date)
+  const phoneClean = formatPhoneForWhatsApp(data.phone)
+  const waLink = `https://wa.me/${phoneClean}?text=${encodeURIComponent(
+    i18n.waMessage(data.name, data.guests, dateFormatted, data.time)
+  )}`
+
+  await transporter.sendMail({
+    from: `Arcadas do Fado <${from}>`,
+    to: 'clvale@re-evolution.pt',
+    subject: `🍽️ Nova Reserva — ${sanitizeInput(data.name)} · ${dateFormatted} · ${data.guests} pax`,
+    html: buildInternalEmailHtml({ ...data, locale, waLink }),
   })
 }
 
@@ -182,7 +418,7 @@ async function sendConfirmationEmail(data: {
   const user = process.env.EMAIL_SMTP_USER
   const pass = process.env.EMAIL_SMTP_PASS
   const from = process.env.EMAIL_FROM ?? 'reservas@arcadasdofado.com'
-  const cc = process.env.EMAIL_CC ?? 'geral@arcadasdofado.com'
+  const cc = process.env.EMAIL_CC || undefined
 
   if (!host || host === 'placeholder_substituir' || !user || !pass) return
 
@@ -197,7 +433,7 @@ async function sendConfirmationEmail(data: {
   await transporter.sendMail({
     from: `Arcadas do Fado <${from}>`,
     to: data.email,
-    cc,
+    ...(cc && { cc }),
     subject: 'Pedido de Reserva Recebido — Arcadas do Fado',
     html: buildEmailHtml(data),
   })
@@ -272,12 +508,12 @@ export async function POST(req: NextRequest) {
     }
 
     // Send notifications in parallel (don't fail the response if they fail)
-    const [emailResult, telegramResult] = await Promise.allSettled([
+    const [emailResult, internalEmailResult] = await Promise.allSettled([
       sendConfirmationEmail(cleanData),
-      sendTelegramNotification(buildTelegramMessage({ ...cleanData, phone: sanitizeInput(phone) })),
+      sendInternalNotificationEmail({ ...cleanData, phone: sanitizeInput(phone) }),
     ])
     if (emailResult.status === 'rejected') console.error('Email error:', emailResult.reason)
-    if (telegramResult.status === 'rejected') console.error('Telegram error:', telegramResult.reason)
+    if (internalEmailResult.status === 'rejected') console.error('Internal email error:', internalEmailResult.reason)
 
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {

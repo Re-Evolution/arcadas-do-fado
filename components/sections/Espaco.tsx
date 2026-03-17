@@ -39,30 +39,20 @@ export default function Espaco() {
               <p className="font-body text-text/80 text-lg leading-relaxed">{t('p2')}</p>
             </div>
 
-            {/* Notes */}
-            <div className="mt-10 border-t border-cream">
-              <div className="py-8 space-y-1">
-                <p className="font-display text-xl text-rust font-medium">📋 {tR('reservationsRequired')}</p>
-                <p className="font-display text-xl text-rust font-medium">💵 {tR('paymentMethod')}</p>
+            {/* Stats + note */}
+            <div className="mt-10 border-t border-cream pt-8">
+              <div className="flex gap-10">
+                <div>
+                  <p className="font-display text-4xl text-rust font-light">60</p>
+                  <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">{t('capacity')}</p>
+                </div>
+                <div className="w-px bg-cream" aria-hidden="true" />
+                <div>
+                  <p className="font-display text-4xl text-rust font-light">21<span className="text-2xl">h30</span></p>
+                  <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">Espetáculo</p>
+                </div>
               </div>
-            </div>
-
-            {/* Stats */}
-            <div className="flex gap-10 pt-8 border-t border-cream">
-              <div>
-                <p className="font-display text-4xl text-rust font-light">60</p>
-                <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">{t('capacity')}</p>
-              </div>
-              <div className="w-px bg-cream" aria-hidden="true" />
-              <div>
-                <p className="font-display text-4xl text-rust font-light">21<span className="text-2xl">h30</span></p>
-                <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">Espetáculo</p>
-              </div>
-              <div className="w-px bg-cream" aria-hidden="true" />
-              <div>
-                <p className="font-display text-4xl text-rust font-light">5<span className="text-2xl">€</span></p>
-                <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">Cover charge</p>
-              </div>
+              <p className="font-display text-base text-rust font-medium mt-6">📋 {tR('reservationsRequired')}</p>
             </div>
           </motion.div>
 

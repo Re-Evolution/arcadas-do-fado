@@ -48,7 +48,7 @@
     "show2Label": "Fadistas Convidados",
     "show2Desc": "1 a 2 fadistas por noite, em rotação",
     "show3Label": "Guitarristas Portugueses",
-    "show3Desc": "Dois maestros das seis cordas",
+    "show3Desc": "Dois Mestres das Cordas",
     "show4Label": "Alexandra encerra a noite",
     "show4Desc": "A voz que nenhuma noite dispensa",
     "coverCharge": "Cover charge: 5,00 € por pessoa",
@@ -69,7 +69,7 @@
       },
       "saladas": {
         "0": "Salada mista",
-        "1": "Salada de tomate com queijo e ervas",
+        "1": "Salada de tomate com queijo de cabra e ervas",
         "2": "Salada fresca de salmão fumado com queijo de cabra, molho gengibre, mel e mostarda"
       },
       "vegetariano": {

@@ -119,13 +119,6 @@ export default function Reservas() {
                   {t('reservationsRequired')}
                 </p>
               </div>
-              <div className="flex gap-3 items-center p-4 bg-white rounded-xl border border-cream shadow-sm">
-                <span className="text-xl shrink-0" aria-hidden="true">💵</span>
-                <p className="font-sans text-sm font-semibold text-text">
-                  {t('paymentMethod')}
-                </p>
-              </div>
-
               {scheduleItems.map(({ dayKey, hoursKey, icon }) => (
                 <div key={dayKey} className="flex gap-3 items-start p-4 bg-white rounded-xl border border-cream shadow-sm">
                   <span className="text-xl shrink-0 mt-0.5" aria-hidden="true">{icon}</span>

@@ -48,7 +48,7 @@
     "show2Label": "Fadistas Invités",
     "show2Desc": "1 à 2 fadistas par soirée, en rotation",
     "show3Label": "Guitaristes Portugais",
-    "show3Desc": "Deux maîtres de la guitare portugaise",
+    "show3Desc": "Deux Maîtres des Cordes",
     "show4Label": "Alexandra clôt la soirée",
     "show4Desc": "La voix que chaque nuit mérite",
     "coverCharge": "Frais de spectacle : 5,00 € par personne",
@@ -69,7 +69,7 @@
       },
       "saladas": {
         "0": "Salade mixte",
-        "1": "Salade de tomates au fromage et aux herbes",
+        "1": "Salade de tomates au fromage de chèvre et aux herbes",
         "2": "Salade fraîche de saumon fumé au fromage de chèvre, vinaigrette au gingembre, miel et moutarde"
       },
       "vegetariano": {
