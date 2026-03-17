@@ -41,18 +41,22 @@ export default function Espaco() {
 
             {/* Stats + note */}
             <div className="mt-10 border-t border-cream pt-8">
-              <div className="flex gap-10">
+              <div className="flex gap-10 items-center">
                 <div>
                   <p className="font-display text-4xl text-rust font-light">60</p>
                   <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">{t('capacity')}</p>
                 </div>
-                <div className="w-px bg-cream" aria-hidden="true" />
+                <div className="w-px self-stretch bg-cream" aria-hidden="true" />
                 <div>
                   <p className="font-display text-4xl text-rust font-light">21<span className="text-2xl">h30</span></p>
                   <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">Espetáculo</p>
                 </div>
+                <div className="w-px self-stretch bg-cream" aria-hidden="true" />
+                <div>
+                  <p className="font-display text-4xl text-rust font-light">📋</p>
+                  <p className="font-sans text-xs font-medium tracking-wider uppercase text-text/50 mt-1">{tR('reservationsRequired')}</p>
+                </div>
               </div>
-              <p className="font-display text-base text-rust font-medium mt-6">📋 {tR('reservationsRequired')}</p>
             </div>
           </motion.div>
 
