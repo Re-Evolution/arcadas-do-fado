@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { clientData } from '@/data/client-info'
+import LangSetter from '@/components/LangSetter'
 import '../globals.css'
 
 type Locale = 'pt' | 'en' | 'fr' | 'de' | 'es'
@@ -166,27 +167,24 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaRestaurant) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaEvent) }}
-        />
-      </head>
-      <body suppressHydrationWarning>
-        <a href="#main-content" className="skip-link">
-          Saltar para o conteúdo principal
-        </a>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <>
+      <LangSetter locale={locale} />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaRestaurant) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaEvent) }}
+      />
+      <a href="#main-content" className="skip-link">
+        Saltar para o conteúdo principal
+      </a>
+      <NextIntlClientProvider messages={messages}>
+        {children}
+      </NextIntlClientProvider>
+    </>
   )
 }

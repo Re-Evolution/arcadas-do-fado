@@ -6,12 +6,16 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-const spaceImages = [
-  { src: '/images/space/exterior.jpg', alt: 'Exterior do restaurante Arcadas do Fado em Almancil, Algarve', wide: true },
-  { src: '/images/space/sala-1.jpg', alt: 'Sala de jantar do restaurante Arcadas do Fado com mesas preparadas', wide: false },
-  { src: '/images/space/sala-2.jpg', alt: 'Interior elegante das Arcadas do Fado com iluminação ambiente', wide: false },
-  { src: '/images/space/romantic-corner.jpg', alt: 'Canto romântico do restaurante Arcadas do Fado', wide: false },
-  { src: '/images/space/sala-4.jpg', alt: 'Detalhes da decoração do restaurante Arcadas do Fado', wide: false },
+type SpaceItem =
+  | { type: 'image'; src: string; alt: string; wide: boolean }
+  | { type: 'video'; src: string; alt: string; wide: boolean; startOffset?: number }
+
+const spaceItems: SpaceItem[] = [
+  { type: 'image', src: '/images/space/exterior.jpg', alt: 'Exterior do restaurante Arcadas do Fado em Almancil, Algarve', wide: true },
+  { type: 'image', src: '/images/space/romantic-corner.jpg', alt: 'Canto romântico do restaurante Arcadas do Fado', wide: false },
+  { type: 'video', src: '/videos/profiteroles.mp4', alt: 'Profiteroles das Arcadas do Fado', wide: false, startOffset: 0 },
+  { type: 'video', src: '/videos/cordeiro-de-leite.mp4', alt: 'Prato de cordeiro de leite das Arcadas do Fado', wide: false, startOffset: 2 },
+  { type: 'image', src: '/images/space/sala-4.jpg', alt: 'Detalhes da decoração do restaurante Arcadas do Fado', wide: false },
 ]
 
 export default function Espaco() {
@@ -60,30 +64,51 @@ export default function Espaco() {
             </div>
           </motion.div>
 
-          {/* Image grid — 1 wide + 6 squares */}
+          {/* Image/video grid — 1 wide + 4 items */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             className="grid grid-cols-2 gap-3"
           >
-            {spaceImages.map((img, i) => (
-              <div
-                key={i}
-                className={`relative overflow-hidden rounded-2xl ${
-                  img.wide ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]'
-                }`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+            {spaceItems.map((item, i) =>
+              item.type === 'video' ? (
+                <div
+                  key={i}
+                  className={`overflow-hidden rounded-2xl ${item.wide ? 'col-span-2' : ''}`}
+                >
+                  <video
+                    src={item.src}
+                    aria-label={item.alt}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    onLoadedMetadata={(e) => {
+                      if (item.startOffset) (e.currentTarget as HTMLVideoElement).currentTime = item.startOffset
+                    }}
+                    className={`w-full object-cover block ${item.wide ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}
+                  />
+                </div>
+              ) : (
+                <div
+                  key={i}
+                  className={`relative overflow-hidden rounded-2xl ${
+                    item.wide ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]'
+                  }`}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                    loading="lazy"
+                  />
+                </div>
+              )
+            )}
           </motion.div>
         </div>
       </div>
