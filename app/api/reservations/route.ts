@@ -398,7 +398,7 @@ async function sendInternalNotificationEmail(data: {
 
   await transporter.sendMail({
     from: `Arcadas do Fado <${from}>`,
-    to: 'clvale@re-evolution.pt',
+    to: 'geral@arcadasdofado.com',
     subject: `🍽️ Nova Reserva — ${sanitizeInput(data.name)} · ${dateFormatted} · ${data.guests} pax`,
     html: buildInternalEmailHtml({ ...data, locale, waLink }),
   })

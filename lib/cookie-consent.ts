@@ -70,6 +70,7 @@ const applyConsent = (consent: CookieConsent) => {
 
 const loadGoogleAnalytics = () => {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const gaIdOwner = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID_OWNER
   if (!gaId || gaId === 'placeholder_substituir') return
   if (document.querySelector(`script[src*="googletagmanager"]`)) return
 
@@ -84,6 +85,10 @@ const loadGoogleAnalytics = () => {
   }
   window.gtag('js', new Date())
   window.gtag('config', gaId, { anonymize_ip: true })
+
+  if (gaIdOwner) {
+    window.gtag('config', gaIdOwner, { anonymize_ip: true })
+  }
 }
 
 const loadMicrosoftClarity = () => {
