@@ -84,7 +84,6 @@ export default function Hero() {
           className="inline-flex items-center gap-2.5 mb-8"
         >
           <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-rust-light animate-badge-pulse" aria-hidden="true" />
             <span className="font-sans text-xs font-medium tracking-[0.15em] uppercase text-white/90">
               {t('badge')}
             </span>

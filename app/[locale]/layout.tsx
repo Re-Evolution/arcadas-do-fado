@@ -127,6 +127,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     image: `${clientData.seo.siteUrl}${clientData.seo.ogImage}`,
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Cash, Credit Card',
+    areaServed: ['Almancil', 'Faro', 'Algarve', 'Quinta do Lago', 'Vale do Lobo'],
+    keywords: 'fado ao vivo, fado algarve, fado faro, restaurante fado, gastronomia portuguesa, almancil portugal',
   }
 
   const schemaEvent = {

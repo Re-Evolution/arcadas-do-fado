@@ -99,71 +99,89 @@ export default function Fado() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 auto-rows-[200px]">
 
             {/* Retrato esquerdo — col 1, rows 1-2 */}
-            <div className="md:row-span-2 relative rounded-xl overflow-hidden">
-              <Image
-                src="/images/fado/alexandra-canta-bw.jpg"
-                alt="Alexandra a cantar (preto e branco)"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 50vw, 33vw"
-                loading="lazy"
-              />
+            <div className="md:row-span-2 relative rounded-xl overflow-hidden group">
+              <motion.div className="absolute inset-0" whileHover={{ scale: 1.07 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+                <Image
+                  src="/images/fado/alexandra-canta-bw.jpg"
+                  alt="Alexandra, fadista das Arcadas do Fado em Almancil, Algarve"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
             </div>
 
             {/* Destaque centro — col 2, rows 1-2 */}
-            <div className="md:row-span-2 relative rounded-2xl overflow-hidden">
-              <Image
-                src="/images/fado/alexandra-amalia.jpg"
-                alt="Alexandra — homenagem a Amália"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 33vw"
-                loading="lazy"
-              />
+            <div className="md:row-span-2 relative rounded-2xl overflow-hidden group">
+              <motion.div className="absolute inset-0" whileHover={{ scale: 1.07 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+                <Image
+                  src="/images/fado/alexandra-amalia.jpg"
+                  alt="Alexandra em homenagem a Amália Rodrigues — espetáculo de fado ao vivo no Algarve"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
             </div>
 
             {/* Retrato direito — col 3, rows 1-2 */}
-            <div className="md:row-span-2 relative rounded-xl overflow-hidden">
-              <Image
-                src="/images/fado/alexandra-canta-1.jpg"
-                alt="Alexandra em espetáculo"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 50vw, 33vw"
-                loading="lazy"
-              />
+            <div className="md:row-span-2 relative rounded-xl overflow-hidden group">
+              <motion.div className="absolute inset-0" whileHover={{ scale: 1.07 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+                <Image
+                  src="/images/fado/alexandra-canta-1.jpg"
+                  alt="Espetáculo de fado ao vivo nas Arcadas do Fado, Almancil"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
             </div>
 
             {/* Linha de baixo — 3 fotos landscape */}
-            <div className="relative rounded-xl overflow-hidden">
-              <Image
-                src="/images/fado/alexandra-canta.jpg"
-                alt="Alexandra a cantar"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 33vw"
-                loading="lazy"
-              />
+            <div className="relative rounded-xl overflow-hidden group">
+              <motion.div className="absolute inset-0" whileHover={{ scale: 1.07 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+                <Image
+                  src="/images/fado/alexandra-canta.jpg"
+                  alt="Fadista Alexandra a cantar fado ao vivo em Almancil, Algarve"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
             </div>
-            <div className="relative rounded-xl overflow-hidden">
-              <Image
-                src="/images/fado/alexandra-guitarra-1.jpg"
-                alt="Alexandra com guitarra portuguesa"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 33vw"
-                loading="lazy"
-              />
+            <div className="relative rounded-xl overflow-hidden group">
+              <motion.div className="absolute inset-0" whileHover={{ scale: 1.07 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+                <Image
+                  src="/images/fado/alexandra-guitarra-1.jpg"
+                  alt="Alexandra com guitarra portuguesa"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
             </div>
-            <div className="relative rounded-xl overflow-hidden">
-              <Image
-                src="/images/fado/alexandra-guitarra-2.jpg"
-                alt="Alexandra e a guitarra"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 33vw"
-                loading="lazy"
-              />
+            <div className="relative rounded-xl overflow-hidden group">
+              <motion.div className="absolute inset-0" whileHover={{ scale: 1.07 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+                <Image
+                  src="/images/fado/alexandra-guitarra-2.jpg"
+                  alt="Guitarra portuguesa no espetáculo de fado das Arcadas do Fado"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
             </div>
 
           </div>

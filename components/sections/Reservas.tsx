@@ -96,7 +96,7 @@ export default function Reservas() {
           <p className="section-label">{t('sectionLabel')}</p>
           <h2 className="section-title mb-4">{t('title')}</h2>
           <p className="inline-flex items-center gap-2 font-sans text-sm font-medium text-rust bg-rust/10 px-4 py-2 rounded-full">
-            <span aria-hidden="true">🎶</span> {t('note')}
+            {t('note')}
           </p>
         </motion.div>
 
